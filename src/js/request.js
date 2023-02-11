@@ -1,9 +1,11 @@
 import { API_KEY } from '../../config';
 import { clear, searchResults, translateResults, trendingResults, giphyResults} from './results';
+import { headerSearch } from './search';
 
 export function searchEndPoint(mode, endpoint, input){
     gifFetch(mode, endpoint, input).then((data)=>{
         clear();
+        headerSearch();
         searchResults(data.data)
     });
 }
@@ -11,6 +13,7 @@ export function searchEndPoint(mode, endpoint, input){
 export function translateEndPoint(mode, endpoint, input){
     gifFetch(mode, endpoint, input).then((data)=>{
         clear();
+        headerSearch();
         translateResults(data.data)
     });
 }
@@ -18,6 +21,7 @@ export function translateEndPoint(mode, endpoint, input){
 export function trendingEndPoint(mode, endpoint){
     gifFetch(mode, endpoint).then((data)=>{
         clear();
+        headerSearch();
         trendingResults(data.data)
     });
 }
@@ -25,6 +29,7 @@ export function trendingEndPoint(mode, endpoint){
 export function randomEndPoint(mode, endpoint, input){
     gifFetch(mode, endpoint, input).then((data)=>{
         clear();
+        headerSearch();
         giphyResults(data.data)
     });
 }

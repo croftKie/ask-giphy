@@ -1,7 +1,15 @@
 import { endPointSelector } from './app';
+import { clear, searchResults, translateResults, trendingResults, giphyResults} from './results';
 import searchImg from '../assets/search.svg';
 import gifLogo from '../assets/gif-logo.png';
 import stickerLogo from '../assets/sticker-logo.png';
+import heroImg from "../assets/gif-logo.png";
+
+export function buildUi(){
+    clear();
+    document.querySelector('#header').append(buildHero());
+    document.querySelector('.content').append(buildSearchInput());
+}
 
 function modeListener(img, modeButton, buttons) {
     modeButton.addEventListener('click', (e)=>{
@@ -45,9 +53,10 @@ function inputListener(input) {
     return input.value;
 }
 
-export function buildSearchInput(){
+function buildSearchInput(){
     const buttonNames = ['Search','Translate','Trending','Feeling Giphy'];
-    let article = document.getElementById('article');
+    const article = document.createElement('div');
+    article.setAttribute('id','article');
 
     let searchBar = document.createElement('div');
     searchBar.classList.add('search-bar');
@@ -73,7 +82,32 @@ export function buildSearchInput(){
 
     modeListener(img, modeButton, buttons);
     searchTypeListeners(modeButton, buttons, input);
-
     article.append(searchBar,buttonArray);
+    return article;
 }
 
+function buildHero(){
+    const hero = document.createElement('div');
+    hero.classList.add('hero-default');
+    const img = document.createElement('img');
+    img.setAttribute('id','logo');
+    img.src = heroImg;
+    img.addEventListener('click',()=>{
+        buildUi();
+    });
+    hero.append(img);
+    return hero;
+}
+
+export function headerSearch(data){
+    clear();
+    const header = document.getElementById('header');
+    header.classList.add('header-searched');
+
+    let logo = buildHero();
+    logo.classList.add('logo');
+
+    let searchBar = buildSearchInput();
+    searchBar.classList.add('upper-search-bar');
+    header.append(logo, searchBar);
+}

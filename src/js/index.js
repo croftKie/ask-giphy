@@ -1,6 +1,6 @@
 import '../css/style.css'
-import {buildSearchInput, modeListener, searchTypeListeners} from './search';
+import {buildUi} from './search';
 
-buildSearchInput();
+buildUi();
 
 
