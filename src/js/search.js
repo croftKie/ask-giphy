@@ -5,6 +5,9 @@ import gifLogo from '../assets/gif-logo.png';
 import stickerLogo from '../assets/sticker-logo.png';
 import heroImg from "../assets/gif-logo.png";
 
+let default_mode = 'GIFs';
+let current_mode = default_mode;
+
 export function buildUi(){
     clear();
     document.querySelector('#header').append(buildHero());
@@ -73,6 +76,11 @@ function buildSearchInput(){
     buttonArray.append(modeButton);
     for (let i = 0; i < 4; i++) {
         let button = document.createElement('button');
+        if (modeButton.textContent === "Stickers") {
+            button.classList.add('sticker-button')
+        } else {
+            button.classList.add('gif-button');
+        }
         button.classList.add('button-search');
         button.textContent = buttonNames[i];
         buttonArray.append(button);
