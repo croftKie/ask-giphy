@@ -70,6 +70,13 @@ body {
   justify-self: center;
   height: 40px;
 }
+.search-blue {
+  filter: invert(62%) sepia(84%) saturate(2741%) hue-rotate(179deg) brightness(106%) contrast(101%);
+}
+.search-purple {
+  filter: invert(31%) sepia(38%) saturate(6553%) hue-rotate(260deg) brightness(101%) contrast(106%);
+}
+
 .search-bar input {
   width: 90%;
   height: 50px;

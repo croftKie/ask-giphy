@@ -1,16 +1,24 @@
 import { endPointSelector } from './app';
-import searchImg from '../assets/search.svg'
+import searchImg from '../assets/search.svg';
+import gifLogo from '../assets/gif-logo.png';
+import stickerLogo from '../assets/sticker-logo.png';
 
-function modeListener(modeButton, buttons) {
+function modeListener(img, modeButton, buttons) {
     modeButton.addEventListener('click', (e)=>{
-        if(e.target.textContent === 'Sticker') {
+        if(e.target.textContent === 'Stickers') {
+            img.classList.add('search-blue');
+            img.classList.remove('search-purple');
+            document.getElementById('logo').src = gifLogo;
             e.target.textContent = "GIFs";
             buttons.forEach((button)=>{ 
                 button.style.backgroundColor = "var(--gif-color)"; 
             });
             modeButton.style.border = "5px solid var(--gif-color)";
-            endPointSelector('GIF','search');
+            endPointSelector('GIFs','search');
         } else {
+            img.classList.add('search-purple');
+            img.classList.remove('search-blue');
+            document.getElementById('logo').src = stickerLogo;
             e.target.textContent = "Stickers";
             buttons.forEach((button)=>{ 
                 button.style.backgroundColor = "var(--sticker-color)"; 
@@ -63,7 +71,7 @@ export function buildSearchInput(){
 
     let buttons = Array.from(buttonArray.childNodes).slice(1,5)
 
-    modeListener(modeButton, buttons);
+    modeListener(img, modeButton, buttons);
     searchTypeListeners(modeButton, buttons, input);
 
     article.append(searchBar,buttonArray);
