@@ -2,6 +2,8 @@ import { endPointSelector } from './app';
 import searchImg from '../assets/search.svg';
 import gifLogo from '../assets/gif-logo.png';
 import stickerLogo from '../assets/sticker-logo.png';
+import shareImg from '../assets/share.svg';
+import favouriteImg from '../assets/favourite.svg';
 
 
 const buttonNames = ['Search','Translate','Trending','Feeling Giphy'];
@@ -108,37 +110,45 @@ function buildHero(){
 
 export function searchResults(results){
     results.forEach((result)=>{
-        const gifs = document.createElement('img');
-        gifs.src = result.images.original.url;
-        resultsContainer.style.justifyContent = "space-around";
-        resultsContainer.append(gifs);
+        const gif = document.createElement('img');
+        gif.src = result.images.original.url;
+        resultsContainer.append(buildCard(gif));
     });
 }
 
 export function translateResults(results) {
-    const gifs = document.createElement('img');
-    gifs.src = results.images.original.url;
-    resultsContainer.style.justifyContent = "space-around";
-    resultsContainer.append(gifs);
+    const gif = document.createElement('img');
+    gif.src = results.images.original.url;
+    resultsContainer.append(buildCard(gif));
 }
 
 export function trendingResults(results) {
     results.forEach((result)=>{
-        const gifs = document.createElement('img');
-        gifs.src = result.images.original.url;
-        resultsContainer.style.justifyContent = "space-around";
-        resultsContainer.append(gifs);
+        const gif = document.createElement('img');
+        gif.src = result.images.original.url;
+        resultsContainer.append(buildCard(gif));
     });
 }
 
 export function giphyResults(results) {
-    const gifs = document.createElement('img');
-    gifs.src = results.images.original.url;
-    resultsContainer.style.justifyContent = "space-around";
-    resultsContainer.append(gifs);
+    const gif = document.createElement('img');
+    gif.src = results.images.original.url;
+    resultsContainer.append(buildCard(gif));
 }
 
+function buildCard(gif){
+    const card = document.createElement('div');
+    card.classList.add('card');
 
+    const buttons = document.createElement('div');
+    const share = document.createElement('img');
+    const favourite = document.createElement('img');
+    share.src = shareImg;
+    favourite.src = favouriteImg;
+    buttons.append(share, favourite)
+    card.append(gif,buttons);
+    return card;
+}
 
 // function modeListener(img, modeButton, buttons) {
 //     modeButton.addEventListener('click', (e)=>{
