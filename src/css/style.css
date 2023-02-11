@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
+:root {
+  --gif-color: #38b6ff;
+  --sticker-color: #ac38ff;
+}
+
 body {
   background-color: #212121;
   margin: 0;
   height: 100vh;
+  color: white;
+  font-family: 'Concert One';
 }
 
 .container {
@@ -49,7 +56,7 @@ body {
   border-radius: 10px;
   font-family: 'Concert One', cursive;
 }
-.button-array {
+.button-array{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -57,26 +64,33 @@ body {
   gap: 30px;
 }
 
-.button-array button {
+button {
   height: 40px;
   width: 140px;
 }
 
 
 button {
-  background-color: #38b6ff;
+  background-color: var(--gif-color);
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
 }
-button:hover {
-  background-color: #60c3fc;
+.button-search:hover {
+  background-color: white;
+  color: #212121;
+  cursor: pointer;
 }
 
 button:active {
-  box-shadow: inset 0 0 5px 0 #212121;;
+  box-shadow: inset 0 0 5px 0 #212121;
 }
 
-
+.mode {
+  color: #212121;
+  background-color: white;
+  border: 5px solid var(--gif-color);
+  cursor: pointer;
+}
