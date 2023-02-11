@@ -16,7 +16,13 @@ body {
 .container {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 40px;
+}
+.container-search {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
   gap: 40px;
 }
 
@@ -36,6 +42,23 @@ body {
   align-self:start;
   justify-self: center;
 }
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.translate-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-results img {
+  max-width: 400px;
+  height: 400px;
+}
+
 .search-bar {
   display: flex;
   justify-content: space-around;
