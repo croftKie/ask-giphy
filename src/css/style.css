@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
+
+.search-blue {
+  filter: invert(62%) sepia(84%) saturate(2741%) hue-rotate(179deg) brightness(106%) contrast(101%);
+}
+.search-purple {
+  filter: invert(31%) sepia(38%) saturate(6553%) hue-rotate(260deg) brightness(101%) contrast(106%);
+}
+
+.mode {
+  height: 40px;
+  width: 140px;
+  color: #212121;
+  background-color: white;
+  border: 5px solid var(--gif-color);
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+
+
+/* GLOBAL STYLING */
 :root {
   --gif-color: #38b6ff;
   --sticker-color: #ac38ff;
@@ -12,24 +36,39 @@ body {
   color: white;
   font-family: 'Concert One';
 }
+nav {
+  background-color: var(--gif-color);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+nav button {
+  border-bottom: 5px solid white;
+  border-radius: 0;
+  width: 50px;
+  margin-right: 25px;
+  cursor: pointer;
+}
 
 .container {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 2fr;
-  gap: 40px;
+  grid-template-rows: 40px 1fr 2fr;
 }
 
 #header {
   width: 100%;
   justify-self: center;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
 }
-.header-searched {
-  align-content: center;
-  justify-content: end;
-  margin-top: 80px;
+#content {
+  width: 100%;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .hero-default {
@@ -41,56 +80,37 @@ body {
   justify-content: center;
 }
 
-#content {
-  width: 100%;
-  justify-self: center;
-  display: flex;
-  justify-content: center;
-}
-#logo {
+.logo {
   cursor: pointer;
 }
-.logo {
-  grid-column: 1/2;
+button {
+  height: 25px;
+  width: 140px;
+  background-color: var(--gif-color);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
 }
-.upper-search-bar {
-  grid-column: 2/3;
-  width: 80%;
-  justify-self: center;
+
+.button-search:hover {
+  background-color: white;
+  color: #212121;
+  cursor: pointer;
 }
-#search-results {
-  width: 100%;
-  justify-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-#translate-results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
+
 .search-results img {
   max-width: 400px;
   height: 400px;
 }
+
+/* DEFAULT GIF MODE STYLING */
 .search-bar {
   display: flex;
   justify-content: space-around;
   background-color: white;
   border-radius: 10px;
-}
-.search-bar img {
-  align-self: center;
-  justify-self: center;
-  height: 40px;
-}
-.search-blue {
-  filter: invert(62%) sepia(84%) saturate(2741%) hue-rotate(179deg) brightness(106%) contrast(101%);
-}
-.search-purple {
-  filter: invert(31%) sepia(38%) saturate(6553%) hue-rotate(260deg) brightness(101%) contrast(106%);
 }
 .search-bar input {
   width: 90%;
@@ -108,40 +128,51 @@ body {
   margin-top: 40px;
   gap: 30px;
 }
-.gif-button {
-  height: 40px;
-  width: 140px;
-  background-color: var(--gif-color);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-}
-.sticker-button {
-  height: 40px;
-  width: 140px;
-  background-color: var(--sticker-color);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+.search-bar img {
+  align-self: center;
+  justify-self: center;
+  height: 30px;
 }
 
-.button-search:hover {
-  background-color: white;
-  color: #212121;
-  cursor: pointer;
+/* SEARCHED GIF MODE STYLING */
+.hero-searched {
+  grid-column: 1/2;
+  align-self: start;
+  justify-self: center;
+  display: flex;
+  align-items: end;
+  justify-content: center;
 }
-.mode {
-  height: 40px;
-  width: 140px;
-  color: #212121;
+.hero-searched img {
+  max-width: 300px;
+}
+.article-searched {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-bar-searched {
+  display: flex;
+  justify-content: space-around;
+  justify-self: center;
   background-color: white;
-  border: 5px solid var(--gif-color);
-  cursor: pointer;
   border-radius: 10px;
-  font-size: 1rem;
-  font-weight: bold;
+  width: 60%;
+  margin-top: 15px;
 }
+.search-bar-searched input {
+  height: 25px;
+  font-size: 1.5rem;
+}
+.search-bar-searched img {
+  height: 20px;
+}
+.button-array-searched{
+  margin-top: 10px;
+}
+
+/* DEFAULT STICKER MODE STYLING */
+
+
+/* SEARCHED STICKER MODE STYLING */

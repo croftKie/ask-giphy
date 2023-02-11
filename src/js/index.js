@@ -1,6 +1,11 @@
 import '../css/style.css'
-import {buildUi} from './search';
+import { buildDefaultUi, buildSearchUi, typeListener} from './search';
 
-buildUi();
+window.addEventListener("load",()=>{
+    loadDefault();
+});
 
-
+function loadDefault(){
+    buildDefaultUi();
+    typeListener();
+}
