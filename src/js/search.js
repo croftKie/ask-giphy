@@ -8,6 +8,8 @@ import favouriteImg from '../assets/favourite.svg';
 
 const buttonNames = ['Search','Translate','Trending','Feeling Giphy'];
 const resultsContainer = document.querySelector('#content');
+let currentMode = 'gifs';
+let displayMode = 'default';
 
 export function typeListener(){
     const buttons = document.querySelectorAll('.button-search')
@@ -28,6 +30,7 @@ export function buildDefaultUi(){
     document.querySelector('#header').append(buildHero());
     document.querySelector('#content').append(buildSearchInput());
     document.querySelector('#container').style.gridTemplateRows = null;
+    displayMode = 'default';
 }
 
 export function buildSearchUi(){
@@ -41,6 +44,7 @@ export function buildSearchUi(){
     document.querySelector('.button-array').classList.add('button-array-searched');
 
     document.querySelector('#container').style.gridTemplateRows = "40px 100px 1fr"
+    displayMode = 'search';
 }
 
 
@@ -66,6 +70,14 @@ function buildSearchInput(){
         let button = document.createElement('button');
         button.classList.add('button-search');
         button.textContent = buttonNames[i];
+
+        if(currentMode === "gifs") {
+            button.style.borderBottomColor = 'var(--gif-color)';
+        } else if (currentMode === 'stickers') {
+            button.style.borderBottomColor = 'var(--sticker-color)';
+        }
+
+
         buttonArray.append(button);
     };
     let buttons = Array.from(buttonArray.childNodes);
@@ -92,7 +104,12 @@ function buildHero(){
 
     hero.classList.add('hero-default');
     img.classList.add('logo');
-    img.src = gifLogo;
+
+    if(currentMode === "gifs") {
+        img.src = gifLogo;
+    } else if (currentMode === 'stickers') {
+        img.src = stickerLogo;
+    }
 
     img.addEventListener('click',()=>{
         buildDefaultUi();
@@ -149,7 +166,7 @@ function buildCard(gif){
     return card;
 }
 
-let currentMode = 'gifs';
+
 function modeSelector() {
 
     const arr = Array.from(document.querySelector('nav').querySelectorAll('button'));
@@ -157,17 +174,26 @@ function modeSelector() {
     arr[1].style.borderBottom = 'none';
 
     arr[0].addEventListener('click',(e)=>{
+        console.log("fire")
         arr[0].style.borderBottom = "5px solid white";
         arr[1].style.borderBottom = 'none';
         currentMode = 'gifs';
-        
+        if (displayMode === 'default') {
+            buildDefaultUi();
+        } else if (displayMode === 'search') {
+            buildSearchUi();
+        }
         document.querySelector('nav').classList.remove('nav-sticker');
     });
     arr[1].addEventListener('click',(e)=>{
         arr[1].style.borderBottom = "5px solid white";
         arr[0].style.borderBottom = 'none';
         currentMode = 'stickers';
-
+        if (displayMode === 'default') {
+            buildDefaultUi();
+        } else if (displayMode === 'search') {
+            buildSearchUi();
+        }
         document.querySelector('nav').classList.add('nav-sticker');
     });  
 }
