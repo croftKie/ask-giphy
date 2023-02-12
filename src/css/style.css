@@ -8,29 +8,15 @@
   filter: invert(31%) sepia(38%) saturate(6553%) hue-rotate(260deg) brightness(101%) contrast(106%);
 }
 
-.mode {
-  height: 40px;
-  width: 140px;
-  color: #212121;
-  background-color: white;
-  border: 5px solid var(--gif-color);
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-
-
 
 /* GLOBAL STYLING */
 :root {
-  --gif-color: #38b6ff;
-  --sticker-color: #ac38ff;
+  --gif-color: #2ab9e1;
+  --sticker-color: #8a32e9;
 }
 
 body {
-  background-color: #212121;
+  background-color: #313131;
   margin: 0;
   height: 100vh;
   color: white;
