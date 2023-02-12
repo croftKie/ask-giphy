@@ -16,7 +16,7 @@ export function typeListener(){
     buttonArray.forEach((button)=>{
         button.addEventListener('click',()=>{ 
             endPointSelector(
-                'GIFs',
+                currentMode,
                 buttonArray.indexOf(button),
                 input.value);
         });
@@ -27,7 +27,6 @@ export function buildDefaultUi(){
     clearUi();
     document.querySelector('#header').append(buildHero());
     document.querySelector('#content').append(buildSearchInput());
-
     document.querySelector('#container').style.gridTemplateRows = null;
 }
 
@@ -150,28 +149,27 @@ function buildCard(gif){
     return card;
 }
 
-// function modeListener(img, modeButton, buttons) {
-//     modeButton.addEventListener('click', (e)=>{
-//         if(e.target.textContent === 'Stickers') {
-//             img.classList.add('search-blue');
-//             img.classList.remove('search-purple');
-//             document.getElementById('logo').src = gifLogo;
-//             e.target.textContent = "GIFs";
-//             buttons.forEach((button)=>{ 
-//                 button.style.backgroundColor = "var(--gif-color)"; 
-//             });
-//             modeButton.style.border = "5px solid var(--gif-color)";
-//             endPointSelector('GIFs','search');
-//         } else {
-//             img.classList.add('search-purple');
-//             img.classList.remove('search-blue');
-//             document.getElementById('logo').src = stickerLogo;
-//             e.target.textContent = "Stickers";
-//             buttons.forEach((button)=>{ 
-//                 button.style.backgroundColor = "var(--sticker-color)"; 
-//             });
-//             modeButton.style.border = "5px solid var(--sticker-color)";
-//             endPointSelector('Sticker','search');
-//         }
-//     });
-// };
+let currentMode = 'gifs';
+function modeSelector() {
+
+    const arr = Array.from(document.querySelector('nav').querySelectorAll('button'));
+    arr[0].style.borderBottom = "5px solid white";
+    arr[1].style.borderBottom = 'none';
+
+    arr[0].addEventListener('click',(e)=>{
+        arr[0].style.borderBottom = "5px solid white";
+        arr[1].style.borderBottom = 'none';
+        currentMode = 'gifs';
+        
+        document.querySelector('nav').classList.remove('nav-sticker');
+    });
+    arr[1].addEventListener('click',(e)=>{
+        arr[1].style.borderBottom = "5px solid white";
+        arr[0].style.borderBottom = 'none';
+        currentMode = 'stickers';
+
+        document.querySelector('nav').classList.add('nav-sticker');
+    });  
+}
+
+modeSelector();

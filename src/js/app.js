@@ -1,7 +1,7 @@
 import { searchEndPoint, translateEndPoint, trendingEndPoint, randomEndPoint } from "./request";
 
 export function endPointSelector(mode, endPoint, input) {
-    if (mode === "GIFs"){
+    if (mode === "gifs"){
         switch (endPoint) {
             case 0:
                 searchEndPoint(mode.toLowerCase(),'search', input);
@@ -16,7 +16,7 @@ export function endPointSelector(mode, endPoint, input) {
                 randomEndPoint(mode.toLowerCase(),'random', input);
                 break;
         }
-    } else if (mode === "Stickers") {
+    } else if (mode === "stickers") {
         switch (endPoint) {
             case 0:
                 searchEndPoint(mode.toLowerCase(),'search', input);

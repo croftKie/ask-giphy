@@ -42,12 +42,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: end;
+  padding-right: 30px;
+  gap: 40px;
 }
 nav button {
   border-bottom: 5px solid white;
+  width: 80px;
   border-radius: 0;
-  width: 50px;
-  margin-right: 25px;
   cursor: pointer;
 }
 
@@ -85,19 +86,19 @@ nav button {
   cursor: pointer;
 }
 button {
-  height: 25px;
+  height: 30px;
   width: 140px;
-  background-color: var(--gif-color);
   color: white;
+  background: none;
   font-weight: bold;
   border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-bottom: 5px solid var(--gif-color);
+  font-size: 1.2rem;
 }
 
 .button-search:hover {
-  background-color: white;
-  color: #212121;
+  color: white;
+  border-bottom: 5px solid white;
   cursor: pointer;
 }
 
@@ -173,11 +174,14 @@ button {
   margin-top: 10px;
 }
 
-/* DEFAULT STICKER MODE STYLING */
+/* STICKER MODE STYLING */
+.nav-sticker {
+  background-color: var(--sticker-color);
+}
 
-
-/* SEARCHED STICKER MODE STYLING */
-
+.button-sticker {
+  border-bottom: 5px solid var(--sticker-color);
+}
 
 
 /* Card Styling */
