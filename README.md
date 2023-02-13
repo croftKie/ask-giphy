@@ -1,15 +1,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About Ask Giphy
 
-A web tool to combine relaxing Lo-Fi beats with an ever lurking clock! Keep yourself on time when studying or working using the Lo-Fi Study Clock, with built in To-Do list and timer.
+A search engine just for all your GIF and Sticker needs! 
 
-What you can do:
-* Listen to some relaxed Lo-Fi beats or add your own YouTube playlist.
-* Add your projects or tasks to the built in to-do list and know that they'll still be there if you refresh or close the site.
-* Start the timer and keep an eye on how long your spending on each task.
-
-Of-course, no Lo-Fi app would be complete without some satisfying animations, see you can find all of them!
-
+Search for a specific term using the "search" or "translate"
+Find out what is trending on the "trending" tab
+If you are feeling GIPHY, go for something a bit more random!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -21,22 +17,8 @@ This application has made use of a range of technologies, such as:
 * HTML5
 * CSS3
 * Javascript
-* Parceljs
+* GIPHY API Integration
 * Local Storage
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add animated clock
-- [x] Add Lo-fi playlist
-- [x] Add functionality for YouTube playlists
-- [x] Add to-do list & timer
-- [x] Add music bars
-- [ ] Add animations
-- [ ] Add canvas for cursor art
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
