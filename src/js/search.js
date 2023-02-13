@@ -156,13 +156,28 @@ function buildCard(gif){
     const card = document.createElement('div');
     card.classList.add('card');
 
-    const buttons = document.createElement('div');
+    const info = document.createElement('div');
+    info.style.marginRight = "10px";
+    info.style.marginBottom = "10px";
+    const copiedAlert = document.createElement('p');
+    copiedAlert.textContent = "Copied link!";
+    copiedAlert.style.color = 'black'
+    copiedAlert.style.margin = '0';
+    copiedAlert.style.display = 'none';
     const share = document.createElement('img');
-    const favourite = document.createElement('img');
     share.src = shareImg;
-    favourite.src = favouriteImg;
-    buttons.append(share, favourite)
-    card.append(gif,buttons);
+    share.style.height = '25px';
+
+    share.addEventListener('click',()=>{
+        navigator.clipboard.writeText(gif.src);
+        copiedAlert.style.display = 'inline';
+        setTimeout(()=>{
+            copiedAlert.style.display = 'none';
+        }, 1000);
+    });
+
+    info.append(copiedAlert, share);
+    card.append(gif,info);
     return card;
 }
 
@@ -199,3 +214,4 @@ function modeSelector() {
 }
 
 modeSelector();
+
